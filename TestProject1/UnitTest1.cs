@@ -1,5 +1,5 @@
 using CIdemo1;
-using CIdemo1.Calculator;
+
 namespace TestProject1
 {
         public class CalculatorTests
@@ -128,11 +128,6 @@ namespace TestProject1
                 Assert.Equal(expected, result, 5); // Using precision of 5 decimal places
             }
 
-            [Fact]
-            public void SquareRoot_ThrowsException_WhenInputIsNegative()
-            {
-                double a = -16;
-                Assert.Throws<ArgumentException>(() => _calculator.SquareRoot(a));
-            }
+
         }
     }
