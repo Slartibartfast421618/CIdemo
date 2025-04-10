@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CIdemo1")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+48557ed9d975139a385135c0dc6ca4d1f8f0f545")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5246a2de518e40837fdc53415eeb7a013e377c7a")]
 [assembly: System.Reflection.AssemblyProductAttribute("CIdemo1")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CIdemo1")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

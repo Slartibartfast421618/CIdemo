@@ -1,159 +1,138 @@
 using CIdemo1;
+using CIdemo1.Calculator;
 namespace TestProject1
 {
-    public class UnitTest1
-    {
-        private readonly ICalculator _calculator;
-
-        public UnitTest1()
+        public class CalculatorTests
         {
-            _calculator = new Calculator1();
-        }
+            private readonly ICalculator _calculator;
 
-        [Fact]
-        public void Add_ReturnsCorrectSum()
-        {
-            // Arrange
-            int a = 5;
-            int b = 3;
-            int expected = 8;
+            public CalculatorTests()
+            {
+                _calculator = new CalculatorImplementation();
+            }
 
-            // Act
-            int result = _calculator.Add(a, b);
+            [Fact]
+            public void Add_ReturnsCorrectSum_PositiveNumbers()
+            {
+                int a = 5;
+                int b = 3;
+                int expected = 8;
+                int result = _calculator.Add(a, b);
+                Assert.Equal(expected, result);
+            }
 
-            // Assert
-            Assert.Equal(expected, result);
-        }
+            [Fact]
+            public void Add_ReturnsCorrectSum_NegativeNumbers()
+            {
+                int a = -5;
+                int b = -3;
+                int expected = -8;
+                int result = _calculator.Add(a, b);
+                Assert.Equal(expected, result);
+            }
 
-        [Fact]
-        public void Subtract_ReturnsCorrectDifference()
-        {
-            // Arrange
-            int a = 10;
-            int b = 4;
-            int expected = 6;
+            [Fact]
+            public void Subtract_ReturnsCorrectDifference_PositiveNumbers()
+            {
+                int a = 10;
+                int b = 4;
+                int expected = 6;
+                int result = _calculator.Subtract(a, b);
+                Assert.Equal(expected, result);
+            }
 
-            // Act
-            int result = _calculator.Subtract(a, b);
+            [Fact]
+            public void Subtract_ReturnsCorrectDifference_NegativeNumbers()
+            {
+                int a = -10;
+                int b = -4;
+                int expected = -6;
+                int result = _calculator.Subtract(a, b);
+                Assert.Equal(expected, result);
+            }
 
-            // Assert
-            Assert.Equal(expected, result);
-        }
+            [Fact]
+            public void Multiply_ReturnsCorrectProduct_PositiveNumbers()
+            {
+                int a = 7;
+                int b = 6;
+                int expected = 42;
+                int result = _calculator.Multiply(a, b);
+                Assert.Equal(expected, result);
+            }
 
-        [Fact]
-        public void Multiply_ReturnsCorrectProduct()
-        {
-            // Arrange
-            int a = 7;
-            int b = 6;
-            int expected = 42;
+            [Fact]
+            public void Multiply_ReturnsCorrectProduct_NegativeNumbers()
+            {
+                int a = -7;
+                int b = 6;
+                int expected = -42;
+                int result = _calculator.Multiply(a, b);
+                Assert.Equal(expected, result);
+            }
 
-            // Act
-            int result = _calculator.Multiply(a, b);
+            [Fact]
+            public void Divide_ReturnsCorrectQuotient_PositiveNumbers()
+            {
+                int a = 20;
+                int b = 5;
+                int expected = 4;
+                int result = _calculator.Divide(a, b);
+                Assert.Equal(expected, result);
+            }
 
-            // Assert
-            Assert.Equal(expected, result);
-        }
+            [Fact]
+            public void Divide_ReturnsCorrectQuotient_NegativeNumbers()
+            {
+                int a = -20;
+                int b = 5;
+                int expected = -4;
+                int result = _calculator.Divide(a, b);
+                Assert.Equal(expected, result);
+            }
 
-        [Fact]
-        public void Divide_ReturnsCorrectQuotient()
-        {
-            // Arrange
-            int a = 20;
-            int b = 5;
-            int expected = 4;
+            [Fact]
+            public void Divide_ThrowsException_WhenDivisorIsZero()
+            {
+                int a = 10;
+                int b = 0;
+                Assert.Throws<DivideByZeroException>(() => _calculator.Divide(a, b));
+            }
 
-            // Act
-            double result = _calculator.Divide(a, b);
+            [Fact]
+            public void Power_ReturnsCorrectResult_PositiveNumbers()
+            {
+                double a = 2;
+                double b = 3;
+                double expected = 8;
+                double result = _calculator.Power(a, b);
+                Assert.Equal(expected, result, 5); // Using precision of 5 decimal places
+            }
 
-            // Assert
-            Assert.Equal(expected, result);
-        }
+            [Fact]
+            public void Power_ReturnsCorrectResult_NegativeExponent()
+            {
+                double a = 2;
+                double b = -3;
+                double expected = 0.125;
+                double result = _calculator.Power(a, b);
+                Assert.Equal(expected, result, 5); // Using precision of 5 decimal places
+            }
 
-        [Fact]
-        public void Divide_ThrowsException_WhenDivisorIsZero()
-        {
-            // Arrange
-            int a = 10;
-            int b = 0;
+            [Fact]
+            public void SquareRoot_ReturnsCorrectResult_PositiveNumbers()
+            {
+                double a = 16;
+                double expected = 4;
+                double result = _calculator.SquareRoot(a);
+                Assert.Equal(expected, result, 5); // Using precision of 5 decimal places
+            }
 
-            // Act & Assert
-            Assert.Throws<DivideByZeroException>(() => _calculator.Divide(a, b));
-        }
-
-        [Fact]
-        public void Divide_HandlesNegativeNumbers()
-        {
-            // Arrange
-            int a = -20;
-            int b = 5;
-            int expected = -4;
-
-            // Act
-            double result = _calculator.Divide(a, b);
-
-            // Assert
-            Assert.Equal(expected, result);
-        }
-
-        [Fact]
-        public void Divide_HandlesNegativeDivisor()
-        {
-            // Arrange
-            int a = 20;
-            int b = -5;
-            int expected = -4;
-
-            // Act
-            double result = _calculator.Divide(a, b);
-
-            // Assert
-            Assert.Equal(expected, result);
-        }
-
-        [Fact]
-        public void Add_HandlesNegativeNumbers()
-        {
-            // Arrange
-            int a = -5;
-            int b = -3;
-            int expected = -8;
-
-            // Act
-            int result = _calculator.Add(a, b);
-
-            // Assert
-            Assert.Equal(expected, result);
-        }
-
-        [Fact]
-        public void Subtract_HandlesNegativeNumbers()
-        {
-            // Arrange
-            int a = -10;
-            int b = -4;
-            int expected = -6;
-
-            // Act
-            int result = _calculator.Subtract(a, b);
-
-            // Assert
-            Assert.Equal(expected, result);
-        }
-
-        [Fact]
-        public void Multiply_HandlesNegativeNumbers()
-        {
-            // Arrange
-            int a = -7;
-            int b = 6;
-            int expected = -42;
-
-            // Act
-            int result = _calculator.Multiply(a, b);
-
-            // Assert
-            Assert.Equal(expected, result);
+            [Fact]
+            public void SquareRoot_ThrowsException_WhenInputIsNegative()
+            {
+                double a = -16;
+                Assert.Throws<ArgumentException>(() => _calculator.SquareRoot(a));
+            }
         }
     }
-}
