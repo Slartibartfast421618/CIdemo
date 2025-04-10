@@ -16,7 +16,7 @@ namespace TestProject1
             // Arrange
             int a = 5;
             int b = 3;
-            int expected = 8;
+            int expected = 10;
 
             // Act
             int result = _calculator.Add(a, b);

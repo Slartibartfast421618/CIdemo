@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Code\\CIDemo\\CIdemo1\\CIdemo1\\CIdemo1.csproj",
+      "projectUniqueName": "C:\\Code\\CIdemo1\\CIdemo1\\CIdemo1.csproj",
       "projectName": "CIdemo1",
-      "projectPath": "C:\\Code\\CIDemo\\CIdemo1\\CIdemo1\\CIdemo1.csproj",
+      "projectPath": "C:\\Code\\CIdemo1\\CIdemo1\\CIdemo1.csproj",
       "packagesPath": "C:\\Users\\holm6\\.nuget\\packages\\",
-      "outputPath": "C:\\Code\\CIDemo\\CIdemo1\\CIdemo1\\obj\\",
+      "outputPath": "C:\\Code\\CIdemo1\\CIdemo1\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
